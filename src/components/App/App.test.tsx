@@ -8,8 +8,7 @@ describe ("App", () => {
   });
 
   it ("should render the text Advent of Code 2022", () => {
-    const { container } = render (<App />);
-    expect (container.textContent).toBe ("Advent of Code 2022");
+    expect (render (<App />).baseElement.textContent).toBe ("Advent of Code 2022");
   } );
 
 });
