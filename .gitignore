@@ -1,0 +1,18 @@
+# Ignore local development folders
+.npm
+node_modules
+
+# Ignore .env local overrides
+.env*.local
+.npmrc
+.vscode
+
+.eslintcache
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/**/*.js-snapshots
+
