@@ -3,14 +3,14 @@ import React, { ReactElement } from 'react';
 const Calories = ({data}:ICalories): ReactElement => {
 
   type backpack = {
-    items: number[];
+    foodCalories: number[];
   };
   const inputData: string[] = data.split('\n');
   const backpacks: backpack[] = [];
 
   //sum the contents of one backpack 
   const sumBackpack = (backpack: backpack): number => {
-    return backpack.items.reduce((sum: number, element:number) => sum + element, 0);
+    return backpack.foodCalories.reduce((sum: number, element:number) => sum + element, 0);
   };
 
   const sortBackpacks = (backpacks: backpack[]): backpack[] => {
@@ -20,13 +20,13 @@ const Calories = ({data}:ICalories): ReactElement => {
   };
 
   const setUpBackPacks = (inputData: string[], backpacks:backpack[]): void => {
-    let backpack: backpack = { items: [] };
-    inputData.forEach((item) => {
-      if (item === '') {
+    let backpack: backpack = { foodCalories: [] };
+    inputData.forEach((foodCalorie) => {
+      if (foodCalorie === '') {
         backpacks.push(backpack);
-        backpack = { items: [] };
+        backpack = { foodCalories: [] };
       } else {
-        backpack.items.push(parseInt(item));
+        backpack.foodCalories.push(parseInt(foodCalorie));
       }
     });
     backpacks.push(backpack);
