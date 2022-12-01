@@ -1,10 +1,16 @@
 import React, { ReactElement } from "react";
+import Calories from "../Calories/Calories";
+import day1data from '/data/testday1.txt';
+
+console.log(day1data);
 
 const App = ():ReactElement => {
   return (
     <div>
       <h1>Advent of Code 2022</h1>
+      <Calories data={day1data}/>
     </div>
+    
   );
 };
 

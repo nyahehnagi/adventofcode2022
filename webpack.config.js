@@ -26,13 +26,17 @@ module.exports = {
         use: "ts-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.txt$/i,
+        loader: 'raw-loader',
+      },
     ],
   },
 
   // Telling webpack which extensions
   // we are interested in.
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: ["*",".tsx", ".ts", ".js", ".jsx", '.txt'],
   },
 
   // What file name should be used for the result file,
