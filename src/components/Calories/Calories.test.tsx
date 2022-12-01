@@ -12,7 +12,7 @@ describe('Calories', () => {
 
   it('it should render the sum of the top 3 calories', () => {
     const { getByText } = render(<Calories data={mockData}/>);
-    expect(getByText('The sum of the calories of the elves carrying the most calories: 10000')).toBeTruthy();
+    expect(getByText('The sum of the calories of the 3 elves carrying the most calories: 10000')).toBeTruthy();
   });
 
   it('it should render the largest calories', () => {
