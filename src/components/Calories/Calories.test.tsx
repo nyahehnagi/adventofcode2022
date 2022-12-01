@@ -4,7 +4,7 @@ import Calories from './Calories';
 
 describe('Calories', () => {
   const mockData: string = "1000\n2000\n\n1000\n2000\n3000\n\n1000"
-  console.log(mockData);
+
   it('should render', () => {
     const { container } = render(<Calories data={mockData}/>);
     expect(container).toBeTruthy();

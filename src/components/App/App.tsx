@@ -1,8 +1,6 @@
 import React, { ReactElement } from "react";
 import Calories from "../Calories/Calories";
-import day1data from '/data/testday1.txt';
-
-console.log(day1data);
+import day1data from '/data/day1.txt';
 
 const App = ():ReactElement => {
   return (
