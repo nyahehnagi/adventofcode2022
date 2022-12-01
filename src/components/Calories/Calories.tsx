@@ -10,11 +10,7 @@ const Calories = ({data}:ICalories): ReactElement => {
 
   //sum the contents of one backpack 
   const sumBackpack = (backpack: backpack): number => {
-    let sum = 0;
-    backpack.items.forEach((item) => {
-      sum += item;
-    });
-    return sum;
+    return backpack.items.reduce((sum: number, element:number) => sum + element, 0);
   };
 
   const sortBackpacks = (backpacks: backpack[]): backpack[] => {
@@ -39,20 +35,16 @@ const Calories = ({data}:ICalories): ReactElement => {
 
   setUpBackPacks(inputData, backpacks);
 
-  // get backpack with largest total calories
-  const getLargestCalories = (backpacks: backpack[]): number => {
-    return sumBackpack(backpacks[0]);
+  const getCalories = (backpacks: backpack[], takeNum: number ): number => {
+    const slicedArry = backpacks.slice(0, takeNum);
+    return slicedArry.reduce((sum: number, backpack:backpack) => sum + sumBackpack(backpack), 0)
   };
 
-  const getTop3Calories = (backpacks: backpack[]): number => {
-    return sumBackpack(backpacks[0]) + sumBackpack(backpacks[1]) + sumBackpack(backpacks[2]);
-  };
-  
   return (
       <div>
           <h1>Day 1: Calories</h1>
-          <div>Elf carrying most amount of calories is: {getLargestCalories(backpacks)}</div>
-          <div>The sum of the calories of the elves carrying the most calories: {getTop3Calories(backpacks)}</div>
+          <div>Elf carrying most amount of calories is: {getCalories(backpacks, 1)}</div>
+          <div>The sum of the calories of the elves carrying the most calories: {getCalories(backpacks, 3)}</div>
       </div>
   );
 
