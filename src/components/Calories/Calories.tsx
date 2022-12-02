@@ -42,7 +42,7 @@ const Calories = ({data}:ICalories): ReactElement => {
 
   return (
       <div>
-          <h1>Day 1: Calories</h1>
+          <h2>Day 1: Calories</h2>
           <div>Elf carrying most amount of calories is: {getCalories(backpacks, 1)}</div>
           <div>The sum of the calories of the 3 elves carrying the most calories: {getCalories(backpacks, 3)}</div>
       </div>
