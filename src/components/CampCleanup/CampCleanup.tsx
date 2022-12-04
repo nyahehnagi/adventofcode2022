@@ -11,10 +11,11 @@ const CampCleanup = ({ data }: IData): ReactElement => {
       const pairs = line.split(",");
       const a = pairs[0].split("-");
       const b = pairs[1].split("-");
-      const [as, ae, bs, be] = [+a[0], +a[1], +b[0], +b[1]];
+      // + sign in front of a string converts it to a number
+      const [start1, end1, start2, end2] = [+a[0], +a[1], +b[0], +b[1]];
     
-      if ((as <= bs && ae >= be) || (as >= bs && ae <= be)) overlaps++;
-      if (ae >= bs && be >= as) partialOverlaps++;
+      if ((start1 <= start2 && end1 >= end2) || (start1 >= start2 && end1 <= end2)) overlaps++;
+      if (end1 >= start2 && end2 >= start1) partialOverlaps++;
     }
     return [overlaps, partialOverlaps]
 
