@@ -11,6 +11,12 @@ function Home() {
             <Link to="calories">Day 1 Calories</Link>
           </li>
           <li>
+            add links to Day 2
+          </li>
+          <li>
+            add links to Day 3
+          </li>
+          <li>
             <Link to="campcleanup">Day 4 Camp Cleanup</Link>
           </li>
         </ul>

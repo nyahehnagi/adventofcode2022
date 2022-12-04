@@ -4,10 +4,10 @@ import CaloriesRoute from "../../routes/CaloriesRoute";
 import CampCleanupRoute from "../../routes/CampCleanupRoute";
 import Home from "../Home/Home";
 
-import RPSGame from "../RPSGame/RPSGame";
-import Rucksacks from "../Rucksacks/Rucksacks";
-import day2 from '/data/day2.txt';
-import day3 from '/data/day3.txt';
+// import RPSGame from "../RPSGame/RPSGame";
+// import Rucksacks from "../Rucksacks/Rucksacks";
+// import day2 from '/data/day2.txt';
+// import day3 from '/data/day3.txt';
 
 
 // TODO add routing
@@ -17,7 +17,7 @@ const App = ():ReactElement => {
       <Routes>
         <Route path="/" element={ <Home/> } />
         <Route path="calories" element={ <CaloriesRoute/> } />
-        <Route path="campcleanuo" element={ <CampCleanupRoute/> } />
+        <Route path="campcleanup" element={ <CampCleanupRoute/> } />
       </Routes>
     </div>
 
