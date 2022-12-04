@@ -25,7 +25,7 @@ const CampCleanup = ({ data }: IData): ReactElement => {
     <div>
       <h2>Day 4: Camp Cleanup</h2>
       <div>The total pairs that contain the other - Part 1: {calculateCount()[0]}</div>
-      <div>The total pairs that overlap - Part 1: {calculateCount()[1]}</div>
+      <div>The total pairs that overlap - Part 2: {calculateCount()[1]}</div>
     </div>
   );
 };
