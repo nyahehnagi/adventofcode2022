@@ -1,5 +1,5 @@
-import React, { ReactElement } from 'react';
-
+import React, { ReactElement } from "react";
+import { Link } from "react-router-dom";
 // Part 1
 // X Rock
 // Y Paper
@@ -14,35 +14,35 @@ import React, { ReactElement } from 'react';
 // X Lose
 // Y Draw
 // Z Win
-const RPSGame = ({data}:IData): ReactElement => {
+const RPSGame = ({ data }: IData): ReactElement => {
   const rpsElfToPlayer: { [key: string]: string } = {
-    'A': 'X',
-    'B': 'Y',
-    'C': 'Z'
+    A: "X",
+    B: "Y",
+    C: "Z",
   };
 
-  const rpsRulesElfWin : { [key: string]: string } = {
-    'A': 'Z',
-    'B': 'X',
-    'C': 'Y'
-  };
-  
-  const rpsRulesElfLose : { [key: string]: string } = {
-    'A': 'Y',
-    'B': 'Z',
-    'C': 'X'
+  const rpsRulesElfWin: { [key: string]: string } = {
+    A: "Z",
+    B: "X",
+    C: "Y",
   };
 
-  const playerShapeScore : { [key: string]: number } = {
-    'X': 1,
-    'Y': 2,
-    'Z': 3
+  const rpsRulesElfLose: { [key: string]: string } = {
+    A: "Y",
+    B: "Z",
+    C: "X",
   };
 
-  const loseDrawWin : { [key: string]: number } = {
-    'X': 0,
-    'Y': 3,
-    'Z': 6
+  const playerShapeScore: { [key: string]: number } = {
+    X: 1,
+    Y: 2,
+    Z: 3,
+  };
+
+  const loseDrawWin: { [key: string]: number } = {
+    X: 0,
+    Y: 3,
+    Z: 6,
   };
 
   const calculateScore = (): [number, number] => {
@@ -55,28 +55,28 @@ const RPSGame = ({data}:IData): ReactElement => {
       const lineArray: string[] = line.split(" ");
       const elf: string = lineArray[0];
       const player: string = lineArray[1];
-      part1Score += calculateGameScorePart1(elf, player)
-      part2Score += calculateGameScorePart2(elf, player)
+      part1Score += calculateGameScorePart1(elf, player);
+      part2Score += calculateGameScorePart2(elf, player);
     }
 
     return [part1Score, part2Score];
-  }
+  };
 
   const calculateGameScorePart1 = (elf: string, player: string): number => {
-      let gameScore: number = 0;
-      // Shape Score
-      gameScore += playerShapeScore[player];
+    let gameScore: number = 0;
+    // Shape Score
+    gameScore += playerShapeScore[player];
 
-      if (rpsElfToPlayer[elf] === player) {
-        // draw
-        gameScore += 3;
-      } else if (rpsRulesElfWin[elf] === player) {
-        // elf wins
-      } else {
-        gameScore += 6;
-      }
-      return gameScore;
-  }
+    if (rpsElfToPlayer[elf] === player) {
+      // draw
+      gameScore += 3;
+    } else if (rpsRulesElfWin[elf] === player) {
+      // elf wins
+    } else {
+      gameScore += 6;
+    }
+    return gameScore;
+  };
 
   const calculateGameScorePart2 = (elf: string, player: string): number => {
     let gameScore: number = 0;
@@ -84,40 +84,47 @@ const RPSGame = ({data}:IData): ReactElement => {
     gameScore += loseDrawWin[player];
 
     // Decide what is players shape depending on what the game outcome is
-    switch(player){
-      case 'X':{
+    switch (player) {
+      case "X": {
         // Player Lose
-        gameScore += playerShapeScore[rpsRulesElfWin[elf]]
+        gameScore += playerShapeScore[rpsRulesElfWin[elf]];
         break;
       }
-      case 'Y':{
+      case "Y": {
         // Draw
-        gameScore += playerShapeScore[rpsElfToPlayer[elf]]
+        gameScore += playerShapeScore[rpsElfToPlayer[elf]];
         break;
       }
-      case 'Z':{
+      case "Z": {
         // Player Win
-        gameScore += playerShapeScore[rpsRulesElfLose[elf]]
+        gameScore += playerShapeScore[rpsRulesElfLose[elf]];
         break;
       }
     }
     return gameScore;
-  }
+  };
 
   const [part1Score, part2Score] = calculateScore();
 
   return (
     <div>
-        <h2>Day 2: Rock Paper Scissors</h2>
-        <div>The total score if everything goes exactly according to the strategy guide Part 1: {part1Score}</div>
-        <div>The total score if everything goes exactly according to the strategy guide Part 2: {part2Score}</div>
+      <h2>Day 2: Rock Paper Scissors</h2>
+      <div>
+        The total score if everything goes exactly according to the strategy
+        guide Part 1: {part1Score}
+      </div>
+      <div>
+        The total score if everything goes exactly according to the strategy
+        guide Part 2: {part2Score}
+      </div>
+      <br></br>
+      <Link to="/">Back</Link>
     </div>
   );
 };
-
 
 interface IData {
   data: string;
 }
 
-export default RPSGame
+export default RPSGame;

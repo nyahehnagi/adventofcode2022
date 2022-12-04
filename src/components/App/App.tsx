@@ -2,15 +2,10 @@ import React, { ReactElement } from "react";
 import { Routes, Route } from "react-router-dom"
 import CaloriesRoute from "../../routes/CaloriesRoute";
 import CampCleanupRoute from "../../routes/CampCleanupRoute";
+import RucksacksRoute from "../../routes/RucksacksRoute";
+import RPSGameRoute from "../../routes/RPSGameRoute";
 import Home from "../Home/Home";
 
-// import RPSGame from "../RPSGame/RPSGame";
-// import Rucksacks from "../Rucksacks/Rucksacks";
-// import day2 from '/data/day2.txt';
-// import day3 from '/data/day3.txt';
-
-
-// TODO add routing
 const App = ():ReactElement => {
   return (
     <div>
@@ -18,6 +13,8 @@ const App = ():ReactElement => {
         <Route path="/" element={ <Home/> } />
         <Route path="calories" element={ <CaloriesRoute/> } />
         <Route path="campcleanup" element={ <CampCleanupRoute/> } />
+        <Route path="rucksacks" element={ <RucksacksRoute/> } />
+        <Route path="rpsgame" element={ <RPSGameRoute/> } />
       </Routes>
     </div>
 

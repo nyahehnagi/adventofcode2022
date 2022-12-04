@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import { Link } from "react-router-dom";
 
 const Rucksacks = ({ data }: IData): ReactElement => {
   const lines: string[] = data.split("\n");
@@ -98,14 +99,14 @@ const Rucksacks = ({ data }: IData): ReactElement => {
     const str3Array: string[] = str3.split("");
     const commonCharacters: string[] = str1Array.filter((char) =>
       str2Array.includes(char)
-    );  
+    );
     const commonCharactersInThreeStrings: string[] = commonCharacters.filter(
       (char) => str3Array.includes(char)
     );
     return commonCharactersInThreeStrings[0];
   };
 
-// get a group of 3 lines until the end of the array
+  // get a group of 3 lines until the end of the array
   const getThreeLines = (index: number): [string, string, string] => {
     const line1: string = lines[index];
     const line2: string = lines[index + 1];
@@ -126,7 +127,7 @@ const Rucksacks = ({ data }: IData): ReactElement => {
       );
 
       sum += characterValues[commonCharacter];
-    } 
+    }
     return sum;
   };
 
@@ -134,11 +135,15 @@ const Rucksacks = ({ data }: IData): ReactElement => {
     <div>
       <h2>Day 3: Rucksacks</h2>
       <div>
-        Sum of item types that appears in both compartments of each rucksack:{sumCommonCharacterValues()}
+        Sum of item types that appears in both compartments of each rucksack:
+        {sumCommonCharacterValues()}
       </div>
       <div>
-        Sum of the priorities of the item types: {sumCommonCharacterValuesInThreeLines()}
+        Sum of the priorities of the item types:{" "}
+        {sumCommonCharacterValuesInThreeLines()}
       </div>
+      <br></br>
+      <Link to="/">Back</Link>
     </div>
   );
 };
