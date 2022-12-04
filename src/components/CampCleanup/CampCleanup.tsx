@@ -16,7 +16,6 @@ const CampCleanup = ({ data }: IData): ReactElement => {
       if ((as <= bs && ae >= be) || (as >= bs && ae <= be)) overlaps++;
       if (ae >= bs && be >= as) partialOverlaps++;
     }
-    console.log(overlaps);
     return [overlaps, partialOverlaps]
 
   };
