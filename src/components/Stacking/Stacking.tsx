@@ -32,21 +32,25 @@ const Stacking = ({ data }: IData): ReactElement => {
     ];
     return stacks;
   }
+  const parseMove = (move: string): [number,number,number] => {
+      let parsedMove = move.replace("move ", "");
+      parsedMove = parsedMove.replace(" from ", ",");
+      parsedMove = parsedMove.replace(" to ", ",");
+      const moveArray = parsedMove.split(",");
+
+      const cratesToMove = parseInt(moveArray[0]);
+      const fromIndex = parseInt(moveArray[1]) - 1;
+      const toIndex = parseInt(moveArray[2]) - 1;
+
+    return [cratesToMove, fromIndex, toIndex];
+  }
 
   const performStackingPart1 = (): string => {
     const stacks: Stacks = getStartingStacks();
     // Initial Setup
     //loop through each line in moves
     for (const move of moves) {
-      let parsedMove = move.replace("move ", "");
-      parsedMove = parsedMove.replace(" from ", ",");
-      parsedMove = parsedMove.replace(" to ", ",");
-
-      const moveArray = parsedMove.split(",");
-      const cratesToMove = parseInt(moveArray[0]);
-      const fromIndex = parseInt(moveArray[1]) - 1;
-      const toIndex = parseInt(moveArray[2]) - 1;
-
+      const [cratesToMove, fromIndex, toIndex]= parseMove(move);
       // pop n items from the stack to move from
       const spliceStart = stacks[fromIndex].length - cratesToMove
       const poppedItems = stacks[fromIndex]
@@ -66,15 +70,7 @@ const Stacking = ({ data }: IData): ReactElement => {
     const stacks: Stacks = getStartingStacks();
     //loop through each line in moves
     for (const move of moves) {
-      let parsedMove = move.replace("move ", "");
-      parsedMove = parsedMove.replace(" from ", ",");
-      parsedMove = parsedMove.replace(" to ", ",");
-
-      const moveArray = parsedMove.split(",");
-      const cratesToMove = parseInt(moveArray[0]);
-      const fromIndex = parseInt(moveArray[1]) - 1;
-      const toIndex = parseInt(moveArray[2]) - 1;
-
+      const [cratesToMove, fromIndex, toIndex]= parseMove(move);
       // pop n items from the stack to move from
       const spliceStart = stacks[fromIndex].length - cratesToMove
       const poppedItems = stacks[fromIndex]
