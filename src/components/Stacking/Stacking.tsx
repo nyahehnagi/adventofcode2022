@@ -8,8 +8,7 @@ const Stacking = ({ data }: IData): ReactElement => {
   type Stacks = Stack[];
 
   const moves: string[] = data.split("\n");
-
-  const performStackingPart1 = (): string => {
+  const getStartingStacks = (): Stacks => {
     const stack1: Stack = ["B", "Q", "C"];
     const stack2: Stack = ["R", "Q", "W", "Z"];
     const stack3: Stack = ["B", "M", "R", "L", "V"];
@@ -31,14 +30,16 @@ const Stacking = ({ data }: IData): ReactElement => {
       stack8,
       stack9,
     ];
+    return stacks;
+  }
+
+  const performStackingPart1 = (): string => {
+    const stacks: Stacks = getStartingStacks();
     // Initial Setup
     //loop through each line in moves
     for (const move of moves) {
-      // replace move with blank space
       let parsedMove = move.replace("move ", "");
-      // replace "from" with comma
       parsedMove = parsedMove.replace(" from ", ",");
-      // replace "to" with comma
       parsedMove = parsedMove.replace(" to ", ",");
 
       const moveArray = parsedMove.split(",");
@@ -47,10 +48,7 @@ const Stacking = ({ data }: IData): ReactElement => {
       const toIndex = parseInt(moveArray[2]) - 1;
 
       // pop n items from the stack to move from
-      const spliceStart =
-        stacks[fromIndex].length - cratesToMove < 0
-          ? 0
-          : stacks[fromIndex].length - cratesToMove;
+      const spliceStart = stacks[fromIndex].length - cratesToMove
       const poppedItems = stacks[fromIndex]
         .splice(spliceStart, cratesToMove)
         .reverse();
@@ -65,34 +63,11 @@ const Stacking = ({ data }: IData): ReactElement => {
 
   const performStackingPart2 = (): string => {
     // Initial Setup
-    const stack1: Stack = ["B", "Q", "C"];
-    const stack2: Stack = ["R", "Q", "W", "Z"];
-    const stack3: Stack = ["B", "M", "R", "L", "V"];
-    const stack4: Stack = ["C", "Z", "H", "V", "T", "W"];
-    const stack5: Stack = ["D", "Z", "H", "B", "N", "V", "G"];
-    const stack6: Stack = ["H", "N", "P", "C", "J", "F", "V", "Q"];
-    const stack7: Stack = ["D", "G", "T", "R", "W", "Z", "S"];
-    const stack8: Stack = ["C", "G", "M", "N", "B", "W", "Z", "P"];
-    const stack9: Stack = ["N", "J", "B", "M", "W", "Q", "F", "P"];
-  
-    const stacks: Stacks = [
-      stack1,
-      stack2,
-      stack3,
-      stack4,
-      stack5,
-      stack6,
-      stack7,
-      stack8,
-      stack9,
-    ];
+    const stacks: Stacks = getStartingStacks();
     //loop through each line in moves
     for (const move of moves) {
-      // replace move with blank space
       let parsedMove = move.replace("move ", "");
-      // replace "from" with comma
       parsedMove = parsedMove.replace(" from ", ",");
-      // replace "to" with comma
       parsedMove = parsedMove.replace(" to ", ",");
 
       const moveArray = parsedMove.split(",");
@@ -101,10 +76,7 @@ const Stacking = ({ data }: IData): ReactElement => {
       const toIndex = parseInt(moveArray[2]) - 1;
 
       // pop n items from the stack to move from
-      const spliceStart =
-        stacks[fromIndex].length - cratesToMove < 0
-          ? 0
-          : stacks[fromIndex].length - cratesToMove;
+      const spliceStart = stacks[fromIndex].length - cratesToMove
       const poppedItems = stacks[fromIndex]
         .splice(spliceStart, cratesToMove)
       // push n items to the stack to move to
