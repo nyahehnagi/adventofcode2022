@@ -15,6 +15,9 @@ function Home() {
           <li>
             <Link to="campcleanup">Day 4 Camp Cleanup</Link>
           </li>
+          <li>
+            <Link to="stacking">Day 5 Stacking</Link>
+          </li>
         </ul>
       </nav>
     </div>

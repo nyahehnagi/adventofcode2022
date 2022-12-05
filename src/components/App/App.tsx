@@ -4,6 +4,7 @@ import CaloriesRoute from "../../routes/CaloriesRoute";
 import CampCleanupRoute from "../../routes/CampCleanupRoute";
 import RucksacksRoute from "../../routes/RucksacksRoute";
 import RPSGameRoute from "../../routes/RPSGameRoute";
+import StackingRoute from "../../routes/StackingRoute";
 import Home from "../Home/Home";
 
 const App = ():ReactElement => {
@@ -15,6 +16,7 @@ const App = ():ReactElement => {
         <Route path="campcleanup" element={ <CampCleanupRoute/> } />
         <Route path="rucksacks" element={ <RucksacksRoute/> } />
         <Route path="rpsgame" element={ <RPSGameRoute/> } />
+        <Route path="stacking" element={ <StackingRoute/> } />
       </Routes>
     </div>
 
