@@ -32,18 +32,23 @@ const Receiver = ({ data }: IData): ReactElement => {
     return -1;
   };
 
-  const getCharactersCount = (): number => {
-    const windows = toWindows(chars, 4);
+  const getCharactersCount = (size: number): number => {
+    const windows = toWindows(chars, size);
     const firstUnique = findFirstUnique(windows);
-    return firstUnique + 4;
+    return firstUnique + size;
   };
+
 
   return (
     <div>
       <h2>Day 6: Receiver Data Stream</h2>
       <div>
         Number of characters that need to be processed before the first
-        start-of-packet marker is detected: {getCharactersCount()}
+        start-of-packet marker is detected - 4: {getCharactersCount(4)}
+      </div>
+      <div>
+        Number of characters that need to be processed before the first
+        start-of-packet marker is detected - 14: {getCharactersCount(14)}
       </div>
       <br></br>
       <Link to="/">Back</Link>
