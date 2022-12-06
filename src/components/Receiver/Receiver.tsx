@@ -17,7 +17,7 @@ const Receiver = ({ data }: IData): ReactElement => {
     return arr.length === new Set(arr).size;
   };
 
-  // return index of first unique item in toWindows(chars, 4)
+  // return index of first unique array in an array of arrays
   const findFirstUnique = (arr: string[][]): number => {
     let index = 0;
     for (const item of arr) {
