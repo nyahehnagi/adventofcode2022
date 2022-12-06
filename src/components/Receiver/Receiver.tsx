@@ -4,11 +4,23 @@ import { Link } from "react-router-dom";
 const Receiver = ({ data }: IData): ReactElement => {
   // From Stackoverflow
   // https://stackoverflow.com/questions/57001515/sliding-window-over-array-in-javascript
+  // https://stackoverflow.com/questions/52219405/how-to-create-windowed-slice-of-array-in-javascript
   function toWindows(inputArray: string[], size: number): string[][] {
-    return Array.from(
-      { length: inputArray.length - (size - 1) }, //get the appropriate length
-      (_, index) => inputArray.slice(index, index + size) //create the windows
-    );
+    if (inputArray.length < size || size <= 0) {
+      return [];
+    }
+
+    let arrayLength = inputArray.length;
+    let result = [];
+    for (let i = 0; i < arrayLength; i++) {
+      let slicedArray = inputArray.slice(i, size + i);
+      if (slicedArray && slicedArray.length === size) {
+        result.push(slicedArray);
+        continue;
+      }
+      break;
+    }
+    return result;
   }
 
   // test all items in array are unique
