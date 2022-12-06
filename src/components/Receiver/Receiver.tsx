@@ -2,9 +2,6 @@ import React, { ReactElement } from "react";
 import { Link } from "react-router-dom";
 
 const Receiver = ({ data }: IData): ReactElement => {
-  // convert string to array of chars (spread syntax)
-  const chars = [...data];
-
   // From Stackoverflow
   // https://stackoverflow.com/questions/57001515/sliding-window-over-array-in-javascript
   function toWindows(inputArray: string[], size: number): string[][] {
@@ -32,23 +29,24 @@ const Receiver = ({ data }: IData): ReactElement => {
     return -1;
   };
 
-  const getCharactersCount = (size: number): number => {
+  const getCharactersCount = (chars: string[], size: number): number => {
     const windows = toWindows(chars, size);
     const firstUnique = findFirstUnique(windows);
     return firstUnique + size;
   };
-
 
   return (
     <div>
       <h2>Day 6: Receiver Data Stream</h2>
       <div>
         Number of characters that need to be processed before the first
-        start-of-packet marker is detected - 4: {getCharactersCount(4)}
+        start-of-packet marker is detected - 4:{" "}
+        {getCharactersCount([...data], 4)}
       </div>
       <div>
         Number of characters that need to be processed before the first
-        start-of-packet marker is detected - 14: {getCharactersCount(14)}
+        start-of-packet marker is detected - 14:{" "}
+        {getCharactersCount([...data], 14)}
       </div>
       <br></br>
       <Link to="/">Back</Link>
