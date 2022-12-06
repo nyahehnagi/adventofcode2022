@@ -18,7 +18,7 @@ const Stacking = ({ data }: IData): ReactElement => {
     const stack7: Stack = ["D", "G", "T", "R", "W", "Z", "S"];
     const stack8: Stack = ["C", "G", "M", "N", "B", "W", "Z", "P"];
     const stack9: Stack = ["N", "J", "B", "M", "W", "Q", "F", "P"];
-  
+
     const stacks: Stacks = [
       stack1,
       stack2,
@@ -31,28 +31,28 @@ const Stacking = ({ data }: IData): ReactElement => {
       stack9,
     ];
     return stacks;
-  }
-  const parseMove = (move: string): [number,number,number] => {
-      let parsedMove = move.replace("move ", "");
-      parsedMove = parsedMove.replace(" from ", ",");
-      parsedMove = parsedMove.replace(" to ", ",");
-      const moveArray = parsedMove.split(",");
+  };
+  const parseMove = (move: string): [number, number, number] => {
+    let parsedMove = move.replace("move ", "");
+    parsedMove = parsedMove.replace(" from ", ",");
+    parsedMove = parsedMove.replace(" to ", ",");
+    const moveArray = parsedMove.split(",");
 
-      const cratesToMove = parseInt(moveArray[0]);
-      const fromIndex = parseInt(moveArray[1]) - 1;
-      const toIndex = parseInt(moveArray[2]) - 1;
+    const cratesToMove = parseInt(moveArray[0]);
+    const fromIndex = parseInt(moveArray[1]) - 1;
+    const toIndex = parseInt(moveArray[2]) - 1;
 
     return [cratesToMove, fromIndex, toIndex];
-  }
+  };
 
   const performStackingPart1 = (): string => {
     const stacks: Stacks = getStartingStacks();
     // Initial Setup
     //loop through each line in moves
     for (const move of moves) {
-      const [cratesToMove, fromIndex, toIndex]= parseMove(move);
+      const [cratesToMove, fromIndex, toIndex] = parseMove(move);
       // pop n items from the stack to move from
-      const spliceStart = stacks[fromIndex].length - cratesToMove
+      const spliceStart = stacks[fromIndex].length - cratesToMove;
       const poppedItems = stacks[fromIndex]
         .splice(spliceStart, cratesToMove)
         .reverse();
@@ -70,11 +70,10 @@ const Stacking = ({ data }: IData): ReactElement => {
     const stacks: Stacks = getStartingStacks();
     //loop through each line in moves
     for (const move of moves) {
-      const [cratesToMove, fromIndex, toIndex]= parseMove(move);
+      const [cratesToMove, fromIndex, toIndex] = parseMove(move);
       // pop n items from the stack to move from
-      const spliceStart = stacks[fromIndex].length - cratesToMove
-      const poppedItems = stacks[fromIndex]
-        .splice(spliceStart, cratesToMove)
+      const spliceStart = stacks[fromIndex].length - cratesToMove;
+      const poppedItems = stacks[fromIndex].splice(spliceStart, cratesToMove);
       // push n items to the stack to move to
       stacks[toIndex].push(...poppedItems);
     }

@@ -18,6 +18,9 @@ function Home() {
           <li>
             <Link to="stacking">Day 5 Stacking</Link>
           </li>
+          <li>
+            <Link to="receiver">Day 6 Receiver</Link>
+          </li>
         </ul>
       </nav>
     </div>
