@@ -40,7 +40,6 @@ const FileSystem = ({ data }: IData): ReactElement => {
         else {
           // get map of files from current directory
           let currentPathStr = currentPath.join("");
-          console.log("currentPathStr: " + currentPathStr);
           let dirFiles = fileSystem.get(currentPathStr);
           let fileSize = parseInt(parts[0]);
           let fileName = parts[1];
@@ -66,12 +65,9 @@ const FileSystem = ({ data }: IData): ReactElement => {
       }
       parserIndex++;
     }
-
-    console.dir("returning parserIndex: " + parserIndex);
   };
 
   const updateParentDirectoriesSizes = (fileSize: number) => {
-    let currentPathStr = currentPath.join("");
     let parentPath = currentPath.slice(0, currentPath.length - 1);
     while (parentPath.length !== 0) {
       let parentPathStr = parentPath.join("");
@@ -88,9 +84,7 @@ const FileSystem = ({ data }: IData): ReactElement => {
 
     while (parserIndex < lines.length) {
       let lineParts = lines[parserIndex].split(" ");
-      console.log("index: " + parserIndex + " line: " + lines[parserIndex]);
       if (isPrompt(lineParts[0])) {
-        console.log("Calling parseCommand with currentPath: " + currentPath);
         parseCommand(lineParts[1], lines);
       }
     }
