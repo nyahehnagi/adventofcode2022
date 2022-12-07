@@ -21,6 +21,9 @@ function Home() {
           <li>
             <Link to="receiver">Day 6 Receiver</Link>
           </li>
+          <li>
+            <Link to="filesystem">Day 7 FileSystem</Link>
+          </li>
         </ul>
       </nav>
     </div>
