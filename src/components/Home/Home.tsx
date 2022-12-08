@@ -24,6 +24,9 @@ function Home() {
           <li>
             <Link to="filesystem">Day 7 FileSystem</Link>
           </li>
+          <li>
+            <Link to="treetops">Day 8: Treetop Tree House</Link>
+          </li>
         </ul>
       </nav>
     </div>

@@ -7,6 +7,7 @@ import RPSGameRoute from "../../routes/RPSGameRoute";
 import StackingRoute from "../../routes/StackingRoute";
 import ReceiverRoute from "../../routes/ReceiverRoute";
 import FileSystemRoute from "../../routes/FileSystemRoute";
+import TreetopsRoute from "../../routes/TreetopsRoute";
 import Home from "../Home/Home";
 
 const App = ():ReactElement => {
@@ -21,6 +22,7 @@ const App = ():ReactElement => {
         <Route path="stacking" element={ <StackingRoute/> } />
         <Route path="receiver" element={ <ReceiverRoute/> } />
         <Route path="filesystem" element={ <FileSystemRoute/> } />
+        <Route path="treetops" element={ <TreetopsRoute/> } />
       </Routes>
     </div>
 
