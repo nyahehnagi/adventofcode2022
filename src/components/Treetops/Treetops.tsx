@@ -45,14 +45,12 @@ const Treetops = ({ data }: IData): ReactElement => {
       });
       treeMatrix.push(row);
     });
-    console.log("New Tree Matri", treeMatrix);
   };
 
   setUpTreeData();
 
   const getVisibleTreesFromTree = (array: Tree[]): number[] => {
     let visibleTreeArray: number[] = [];
-    console.log(array);
     // look at each tree in the array
     for (let i = 0; i < array.length; i++) {
       // look at trees to the right of the current tree
@@ -171,18 +169,27 @@ const Treetops = ({ data }: IData): ReactElement => {
     }
     // remove duplicate trees
     return new Set(visibleTrees).size;
+    
   };
 
   return (
     <div>
       <h2>Day 8: Treetop Tree House</h2>
       <div>
+        <>
+        {console.time('Scenic Score')}
         Trees that are visible from outside the grid:
         {calculateVisibleTrees(treeMatrix)}
+        {console.timeEnd('Scenic Score')}
+        </>
       </div>
       <div>
+        <>
         Highest scenic score possible for any tree:
+        {console.time('Visible trees')}
         {calculateHighestScenicScore(treeMatrix)}
+        {console.timeEnd('Visible trees')}
+        </>
       </div>
       <br></br>
       <Link to="/">Back</Link>

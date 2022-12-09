@@ -27,6 +27,9 @@ function Home() {
           <li>
             <Link to="treetops">Day 8: Treetop Tree House</Link>
           </li>
+          <li>
+            <Link to="ropebridge">Day 9: Rope Bridge</Link>
+          </li>
         </ul>
       </nav>
     </div>

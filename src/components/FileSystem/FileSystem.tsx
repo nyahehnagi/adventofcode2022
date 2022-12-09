@@ -126,10 +126,7 @@ const FileSystem = ({ data }: IData): ReactElement => {
         is less than or equal to 100000: {getFileSizesLessThan(100000)}
       </div>
       <div>
-        What is the total size of the directory:{" "}
-        {getSmallestDirectoryGreaterThan(
-          30000000 - (70000000 - getMaxSizedDirectory())
-        )}
+        What is the total size of the directory:{getSmallestDirectoryGreaterThan(30000000 - (70000000 - getMaxSizedDirectory()))}
       </div>
       <br></br>
       <Link to="/">Back</Link>
